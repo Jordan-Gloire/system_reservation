@@ -88,7 +88,7 @@ export function Page() {
                 <AlertDescription>{error}</AlertDescription>
               </Alert>
             )}
-            <Button type="submit" className="w-full">S'inscrire</Button>
+            <Button type="submit" className="w-full">{"S'inscrire"}</Button>
           </form>
         </CardContent>
         <CardFooter>

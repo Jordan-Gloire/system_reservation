@@ -74,7 +74,7 @@ export default function ConnexionPage() {
           <div className="text-sm">
             Pas encore de compte ?{' '}
             <Link href="/inscription" className="text-blue-600 hover:underline">
-              S'inscrire
+              {"S'inscrire"}
             </Link>
           </div>
         </CardFooter>

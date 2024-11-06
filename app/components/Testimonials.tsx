@@ -54,10 +54,10 @@ const Testimonials: FC = () => {
         </div>
         <div className="flex justify-between mt-4">
           <button onClick={handlePrev} className="text-black hover:text-gray-600">
-            &lt; Précédent
+            {"&lt"}; Précédent
           </button>
           <button onClick={handleNext} className="text-black hover:text-gray-600">
-            Suivant &gt;
+            Suivant {"&gt"};
           </button>
         </div>
       </div>
