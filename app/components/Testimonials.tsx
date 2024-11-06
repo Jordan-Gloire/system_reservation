@@ -1,4 +1,4 @@
- "use client";
+"use client";
 import { FC, useState } from 'react';
 import Image from 'next/image';
 
@@ -12,7 +12,7 @@ const testimonials: Testimonial[] = [
   {
     quote: "Un service rapide et efficace. J'ai pu réserver une salle pour mon mariage en quelques clics !",
     author: "Marie D.",
-    imageUrl: "/marie.jpg", // Assurez-vous que l'image est dans le dossier public
+    imageUrl: "/marie.jpg",
   },
   {
     quote: "Coworking super pratique avec Bookify, je recommande.",
@@ -49,15 +49,15 @@ const Testimonials: FC = () => {
             height={80}
             className="mx-auto rounded-full mb-4"
           />
-          <p className="text-xl italic text-gray-700">"{testimonials[currentIndex].quote}"</p>
+          <p className="text-xl italic text-gray-700">&quot;{testimonials[currentIndex].quote}&quot;</p>
           <p className="mt-4 text-lg font-semibold text-black">– {testimonials[currentIndex].author}</p>
         </div>
         <div className="flex justify-between mt-4">
           <button onClick={handlePrev} className="text-black hover:text-gray-600">
-            {"&lt"}; Précédent
+            &lt; Précédent
           </button>
           <button onClick={handleNext} className="text-black hover:text-gray-600">
-            Suivant {"&gt"};
+            Suivant &gt;
           </button>
         </div>
       </div>
