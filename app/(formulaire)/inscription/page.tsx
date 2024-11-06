@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-
+import Header from '@/app/components/Header'
 export default function InscriptionPage() {
   const [nom, setNom] = useState('')
   const [email, setEmail] = useState('')
@@ -33,6 +33,7 @@ export default function InscriptionPage() {
   }
 
   return (
+    <><Header/>
     <div className="container mx-auto flex items-center justify-center min-h-screen p-4">
       <Card className="w-full max-w-md">
         <CardHeader>
@@ -100,6 +101,6 @@ export default function InscriptionPage() {
           </div>
         </CardFooter>
       </Card>
-    </div>
+    </div></>
   )
 }
