@@ -1,18 +1,15 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
-import Header from './components/Header'
-import { HowItWorksComponent } from '@/components/app-components-how-it-works'
-import Testimonials from './components/Testimonials';
-import CallToAction from './components/CallToAction';
-export default function HeroSection() {
+
+export function Page() {
   return (
-   <>
-    <Header/>
     <section className="relative min-h-[500px] h-screen flex items-center justify-center overflow-hidden">
       {/* Image de fond */}
       <Image
-        src="https://images.pexels.com/photos/7688173/pexels-photo-7688173.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        src="/placeholder.svg?height=1080&width=1920"
         alt="Espaces de travail variés"
         layout="fill"
         objectFit="cover"
@@ -38,9 +35,5 @@ export default function HeroSection() {
         </Button>
       </div>
     </section>
-    <HowItWorksComponent/>
-    <Testimonials />
-    <CallToAction />
-   </>
   )
 }
