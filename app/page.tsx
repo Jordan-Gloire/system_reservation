@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import Header from './components/Header'
 import { HowItWorksComponent } from '@/components/app-components-how-it-works'
-import Testimonials from './components/Testimonials';
+import { Testimonials } from './components/Testimonials';
 import CallToAction from './components/CallToAction';
 export default function HeroSection() {
   return (

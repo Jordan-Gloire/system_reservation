@@ -42,7 +42,7 @@ export function HowItWorksComponent() {
           ))}
         </div>
         <p className="text-center mt-12 max-w-2xl mx-auto text-lg text-muted-foreground">
-          Avec Bookify, réservez votre espace en quelques minutes, recevez des notifications et organisez vos événements en toute simplicité.
+          Avec ReserVite, réservez votre espace en quelques minutes, recevez des notifications et organisez vos événements en toute simplicité.
         </p>
       </div>
     </section>

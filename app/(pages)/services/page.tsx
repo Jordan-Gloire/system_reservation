@@ -46,9 +46,9 @@ const Services: FC = () => {
   return (
     <>
     <Header/>
-        <section id="services" className="py-12 bg-white">
+        <section id="services" className="py-12 bg-gray-900 text-gray-100">
       <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold text-black mb-8">Nos Services</h2>
+        <h2 className="text-4xl font-bold text-gray-100 mb-8">Nos Services</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div key={index} className="bg-white shadow-md rounded-lg overflow-hidden border border-gray-300">
@@ -60,13 +60,13 @@ const Services: FC = () => {
                 className="w-full h-48 object-cover "
               />
               <div className="p-6">
-                <h3 className="text-2xl font-semibold text-black mb-2">{service.title}</h3>
-                <p className="text-gray-700">{service.description}</p>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-2">{service.title}</h3>
+                <p className="text-gray-900">{service.description}</p>
               </div>
             </div>
           ))}
         </div>
-        <Link className="inline-block mt-8 px-6 py-3 bg-black text-white font-semibold rounded hover:bg-gray-800" href="/services">
+        <Link className="inline-block mt-8 px-6 py-3 text-gray-100 font-semibold rounded hover:bg-white" href="/services">
           
             Voir tous les services
           

@@ -1,68 +1,70 @@
 "use client";
-import { FC, useState } from 'react';
-import Image from 'next/image';
+import * as React from "react";
 
-type Testimonial = {
-  quote: string;
-  author: string;
-  imageUrl: string;
-};
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 
-const testimonials: Testimonial[] = [
-  {
-    quote: "Un service rapide et efficace. J'ai pu réserver une salle pour mon mariage en quelques clics !",
-    author: "Marie D.",
-    imageUrl: "/marie.jpg",
-  },
-  {
-    quote: "Coworking super pratique avec Bookify, je recommande.",
-    author: "Paul M.",
-    imageUrl: "/paul.jpg",
-  },
-  {
-    quote: "Facile à utiliser, les rappels sont très utiles.",
-    author: "Sophie B.",
-    imageUrl: "/sophie.jpg",
-  },
-];
+export function Testimonials() {
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(1);
+  const [count, setCount] = React.useState(0);
 
-const Testimonials: FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const comments = [
+    {
+      description: "Un service rapide et efficace. J'ai pu réserver une salle pour mon mariage en quelques clics !",
+      nom: "Ruth OBOA"
+    },
+    {
+      description: "Coworking super pratique avec ReserVite, je recommande.",
+      nom: "Paul MALONGA"
+    },
+    {
+      description: "Facile à utiliser, les rappels sont très utiles.",
+      nom: "Sophie BALOSSA"
+    }
+  ];
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
+  React.useEffect(() => {
+    if (!api) {
+      return;
+    }
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-  };
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
 
   return (
-    <section id="testimonials" className="py-12 bg-gray-100 text-center">
-      <h2 className="text-4xl font-bold text-black mb-8">Ce que nos clients disent de nous</h2>
-      <div className="relative max-w-lg mx-auto">
-        <div className="bg-white shadow-md rounded-lg p-6">
-          <Image
-            src={testimonials[currentIndex].imageUrl}
-            alt={testimonials[currentIndex].author}
-            width={80}
-            height={80}
-            className="mx-auto rounded-full mb-4"
-          />
-          <p className="text-xl italic text-gray-700">&quot;{testimonials[currentIndex].quote}&quot;</p>
-          <p className="mt-4 text-lg font-semibold text-black">– {testimonials[currentIndex].author}</p>
-        </div>
-        <div className="flex justify-between mt-4">
-          <button onClick={handlePrev} className="text-black hover:text-gray-600">
-            &lt; Précédent
-          </button>
-          <button onClick={handleNext} className="text-black hover:text-gray-600">
-            Suivant &gt;
-          </button>
-        </div>
+    <div className="mx-auto max-w-xs">
+      <Carousel setApi={setApi} className="w-full max-w-xs">
+        <CarouselContent>
+          {comments.map((comment, index) => (
+            <CarouselItem key={index}>
+              <Card>
+                <CardContent className="flex flex-col aspect-square items-center justify-center p-6">
+                  <p className="text-lg text-center font-medium">{comment.description}</p>
+                  <span className="text-sm text-muted-foreground mt-2">– {comment.nom}</span>
+                </CardContent>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+      <div className="py-2 text-center text-sm text-muted-foreground">
+        Slide {current} of {count}
       </div>
-    </section>
+    </div>
   );
-};
-
-export default Testimonials;
+}

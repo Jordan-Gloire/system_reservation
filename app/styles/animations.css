@@ -1,0 +1,85 @@
+/* styles/animations.css */
+
+/* Animation de fondu (fade-in) */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Animation de glissement (slide-in) */
+  @keyframes slideIn {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-slideIn {
+    animation: slideIn 1s ease-in-out;
+  }
+  
+  /* Animation de zoom au survol */
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Rotation lente */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animated-circle {
+  animation: rotate 10s linear infinite;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #1a1a1a, #333);
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  opacity: 0.5;
+}
+
+/* Pulsation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+.pulsating-circle {
+  animation: pulse 3s ease-in-out infinite;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  top: 30%;
+  right: 20%;
+}
